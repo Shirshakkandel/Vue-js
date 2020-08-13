@@ -3,32 +3,46 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
    <title>Vue from Scratch</title>
 </head>
 <body>
-   <div id="app">
-      <ul>
-         <li v-for="todo in items">{{todo}}</li>
-      </ul>
-      
-      <input type="text" v-model="item"> <!-- v-model connect
-      content of data and shown in v-text -->
-      <button @click="items.push(item)">Add Item</button>
+   <div class="nav-bar"></div>
+   <div  id="app">
+   <div class="product">
+
+      <div class="product-image">
+         <img :src="image"> 
+      </div>
+
+      <div class="product-info">
+         <h1>{{ product }}</h1>
+         <p v-if="inStock">In stock</p>
+         <p v-else>Out of stock</p>
+
+         <ul>
+            <li v-for="detail in details">{{detail}}</li> 
+         </ul>
+
+         <div v-for="variant in variants" :key="variant.variantId">
+            <p @mouseover="updateProduct(variant.variantImage)" >{{variant.variantColor}}</p>
+         </div>
+
+         <button @click="addToCart">Add to Cart</button>
+
+         <div class="cart">
+            <p>Cart{{cart}}</p>
+         </div>
+      </div>
+
+     
+     
+     
    </div>
+</div>
    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-   <script>
-      new Vue({
-         el:'#app',
-         data:{
-            item:'',
-             items:[
-                'item1',
-                'item2'
-             ]
-            
-         }
-      });
-   </script>
+   <script src="main.js"></script>
+  
 
 </body>
 </html>
