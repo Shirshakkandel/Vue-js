@@ -4,7 +4,8 @@
    data:{
       product: "Socks",
       image:"./image/vmSocks-green-onWhite.jpg",
-      inStock :false,
+      inStock :true,
+      brand : "Sablook",
       details:["80% cotton","20% polyester", "Gender-neutral"],
 
       variants: [
@@ -24,16 +25,22 @@
       cart:0
    },
 
-   methods:{
-      addToCart(){
-         this.cart +=1
+   
+   
+   methods: {
+      addToCart() {
+        this.cart += 1
       },
-
-      updateProduct(variantImage){
-         this.image =variantImage
+      updateProduct(variantImage) {
+        this.image = variantImage
       }
-   }
+    }
+  
+  
 
+  
+
+   
 
      
    });
